@@ -80,6 +80,8 @@ html, body{
     align-items: center;
     justify-self: flex-end;
     padding: 20px;
+    gap: 10px;
+    
 }
 .attck-score{
     height: 8vh;

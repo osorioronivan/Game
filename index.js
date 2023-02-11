@@ -15,31 +15,35 @@ let monster ={
     name : "Orc",
     avatar : "images/Orc.png",
     health : 20,
-    dice_Score : 10
+    dice_Score : 10,
+    dice_Count : 2
+}
+let diceHtml =""
+
+for (let i = 0; i<monster.dice_Count; i++){
+  diceHtml += ' <div class="attck-score"><div class="score">6</div></div>'
 }
 
-
-
-renderCharacter(hero
+renderCharacter(hero, diceHtml
     )
-renderCharacter(monster
+renderCharacter(monster, diceHtml
     )
 
-function renderCharacter(data
+function renderCharacter(data, diceHtml
     ){
-        document.getElementById(data.element_ID).innerHTML = ` <div class="card">
-        <h1 class="character-name">${data.name}</h1>
+      const{element_ID, name, avatar,health, dice_Score} = data
+        document.getElementById(element_ID).innerHTML = ` <div class="card">
+        <h1 class="character-name">${name}</h1>
         <div class="img-char">
-          <img id ="avatart"src="${data.avatar}" alt="" />
+          <img id ="avatart"src="${avatar}" alt="" />
         </div>
         <div class="health-container">
           <p class="label-health">health :</p>
-          <p class="health"><b>${data.health}</b></p>
+          <p class="health"><b>${health}</b></p>
         </div>
         <div class="attck-container">
-          <div class="attck-score">
-            <p class="score">${data.dice_Score}</p>
-          </div>
+          ${diceHtml}
         </div>
         </div>`
+        // <p class="score">${diceHtml}</p>
     }
